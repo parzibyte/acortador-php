@@ -6,7 +6,7 @@ use PDO;
 
 class Database
 {
-    static function getDatabase()
+    static function get()
     {
         $password = Utils::getVarFromEnvironmentVariables("MYSQL_PASSWORD");
         $user = Utils::getVarFromEnvironmentVariables("MYSQL_USER");
