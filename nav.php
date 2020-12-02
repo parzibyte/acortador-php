@@ -40,14 +40,19 @@ También tengo canal de YouTube: https://www.youtube.com/channel/UCroP4BTWjfM0Ck
                 <a class="nav-link" href="link_management.php">Link management&nbsp;<i class="fa fa-link"></i></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="employees_rfid.php">Statistics&nbsp;<i class="fa fa-id-card"></i></a>
+                <a class="nav-link" href="statistics.php">Statistics&nbsp;<i class="fa fa-chart-bar"></i></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="employees_rfid.php">Users&nbsp;<i class="fa fa-id-card"></i></a>
+                <a class="nav-link" href="users.php">Users&nbsp;<i class="fa fa-users"></i></a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="//parzibyte.me/blog">Support & help&nbsp;<i class="fa fa-hands-helping"></i></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="attendance_register.php">Logout&nbsp;<i class="fa fa-check-double"></i></a>
+                <a class="nav-link" href="logout.php">Logout&nbsp;<i class="fa fa-sign-out-alt"></i></a>
             </li>
         </ul>
+
     </div>
 </nav>

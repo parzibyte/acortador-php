@@ -23,6 +23,12 @@ include_once "header.php";
                     Please login
                 </div>
             <?php } ?>
+
+            <?php if (isset($_GET["logged-out"])) { ?>
+                <div class="alert alert-info">
+                    You've logged out. Come back soon :)
+                </div>
+            <?php } ?>
             <div class="form-group">
                 <button class="btn btn-success">Login</button>
             </div>

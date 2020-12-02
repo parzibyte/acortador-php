@@ -4,6 +4,11 @@ namespace Parzibyte;
 
 class SessionController
 {
+    public static function logout()
+    {
+        self::sessionStart();
+        session_destroy();
+    }
 
     public static function redirectIfNotLoggedIn()
     {
