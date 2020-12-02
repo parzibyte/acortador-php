@@ -1,7 +1,5 @@
 <?php
 
-use Parzibyte\LinkController;
-
 include_once "session_check.php";
 include_once "header.php";
 include_once "nav.php";

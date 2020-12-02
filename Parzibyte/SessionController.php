@@ -4,6 +4,12 @@ namespace Parzibyte;
 
 class SessionController
 {
+    public static function get($key)
+    {
+        self::sessionStart();
+        return $_SESSION[$key];
+    }
+
     public static function logout()
     {
         self::sessionStart();
@@ -18,6 +24,7 @@ class SessionController
             exit;
         }
     }
+
     public static function propagateUser($id, $email)
     {
         self::sessionStart();

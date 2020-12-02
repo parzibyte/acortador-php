@@ -25,7 +25,11 @@ Si el código es útil para ti, puedes agradecerme siguiéndome: https://parziby
 Y compartiendo mi blog con tus amigos
 También tengo canal de YouTube: https://www.youtube.com/channel/UCroP4BTWjfM0CkGB6AFUoBg?sub_confirmation=1
 ------------------------------------------------------------------------------------------------
-*/ ?>
+*/
+
+use Parzibyte\SessionController;
+
+?>
 <nav class="navbar navbar-expand-md navbar-dark bg-success fixed-top">
     <a class="navbar-brand" href="https://parzibyte.me/blog">
         <img class="img-fluid" style="max-height: 50px" src="img/parzibyte_logo.png" loading="lazy">
@@ -50,7 +54,10 @@ También tengo canal de YouTube: https://www.youtube.com/channel/UCroP4BTWjfM0Ck
                 <a class="nav-link" href="//parzibyte.me/blog">Support & help&nbsp;<i class="fa fa-hands-helping"></i></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="logout.php">Logout&nbsp;<i class="fa fa-sign-out-alt"></i></a>
+                <a class="nav-link" href="logout.php">Logout (<?php
+                                                                include_once "vendor/autoload.php";
+                                                                echo SessionController::get("email");
+                                                                ?>)&nbsp;<i class="fa fa-sign-out-alt"></i></a>
             </li>
         </ul>
 
