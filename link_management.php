@@ -1,4 +1,113 @@
 <?php
+
+use Parzibyte\LinkController;
+
 include_once "session_check.php";
+include_once "header.php";
+include_once "nav.php";
+include_once "vendor/autoload.php";
 ?>
-Link management
+<div class="row" id="app">
+    <div class="col-12">
+        <h1>Link management</h1>
+        <a href="add_link.php" class="btn btn-success mb-2"><i class="fa fa-plus"></i>&nbsp;Add link</a>
+        <input v-model="search" @keyup="getLinks()" placeholder="Search link by title or link" type="text" class="form-control">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Real link</th>
+                        <th>Instant redirect</th>
+                        <th>Copy</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="link in links">
+                        <td>{{link.title}}</td>
+                        <td>{{link.real_link}}</td>
+                        <td>
+                            <i v-if="link.instant_redirect" class="fa fa-check"></i>
+                            <i v-else class="fa fa-times"></i>
+                        </td>
+                        <td>
+                            <button @click="copy(link)" class="btn btn-primary btn-sm">
+                                <i class="fa fa-clipboard"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button @click="edit(link)" class="btn btn-warning btn-sm">
+                                <i class="fa fa-edit"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button @click="deleteLink(link)" class="btn btn-danger btn-sm">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="js/vue.min.js"></script>
+<script src="js/vue-toasted.min.js"></script>
+<script src="js/sweetalert2.min.js"></script>
+<script>
+    Vue.use(Toasted);
+    new Vue({
+        el: "#app",
+        data: () => ({
+            links: [],
+            search: "",
+        }),
+        mounted() {
+            this.getLinks();
+        },
+        methods: {
+            edit(link) {
+                window.location.href = "./edit_link.php?id=" + link.id;
+            },
+            async deleteLink(link) {
+                const result = await Swal.fire({
+                    title: 'Delete',
+                    text: "Are you sure you want to delete this link?",
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonColor: '#e51c23',
+                    cancelButtonColor: '#4A42F3',
+                    cancelButtonText: 'No',
+                    confirmButtonText: 'Yes, delete it'
+                });
+                if (result.value) {
+                    window.location.href = "./delete_link.php?id=" + link.id;
+                }
+            },
+            async copy(link) {
+                const url = new URL(window.location);
+                let path = url.pathname.split("/");
+                path.pop(); // remove the last
+                url.pathname = path.join("/");
+                const fullUrl = url.href + `/${link.hash}`;
+                if (!navigator.clipboard) {
+                    prompt("Please press CTRL + C", fullUrl);
+                } else {
+                    await navigator.clipboard.writeText(fullUrl);
+                }
+                this.$toasted.show("Copied", {
+                    position: "top-right",
+                    duration: 1000,
+                });
+            },
+            async getLinks() {
+                const r = await fetch(`./get_links_ajax.php?search=${this.search}`);
+                const links = await r.json();
+                this.links = links;
+            }
+        }
+    });
+</script>
+<?php include_once "footer.php"; ?>

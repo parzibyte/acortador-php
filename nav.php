@@ -37,7 +37,7 @@ También tengo canal de YouTube: https://www.youtube.com/channel/UCroP4BTWjfM0Ck
     <div class="collapse navbar-collapse" id="menu">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="employees.php">Manage links&nbsp;<i class="fa fa-users"></i></a>
+                <a class="nav-link" href="link_management.php">Link management&nbsp;<i class="fa fa-link"></i></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="employees_rfid.php">Statistics&nbsp;<i class="fa fa-id-card"></i></a>
