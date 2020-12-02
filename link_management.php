@@ -19,9 +19,7 @@ include_once "vendor/autoload.php";
                         <th>Title</th>
                         <th>Real link</th>
                         <th>Instant redirect</th>
-                        <th>Copy</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
+                        <th>Operations</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -33,17 +31,16 @@ include_once "vendor/autoload.php";
                             <i v-else class="fa fa-times"></i>
                         </td>
                         <td>
-                            <button @click="copy(link)" class="btn btn-primary btn-sm">
+                            <button title="Open in external tab" @click="open(link)" class="btn btn-primary btn-sm">
+                                <i class="fa fa-external-link-alt"></i>
+                            </button>
+                            <button title="Copy" @click="copy(link)" class="btn btn-success btn-sm">
                                 <i class="fa fa-clipboard"></i>
                             </button>
-                        </td>
-                        <td>
-                            <button @click="edit(link)" class="btn btn-warning btn-sm">
+                            <button title="Edit" @click="edit(link)" class="btn btn-warning btn-sm">
                                 <i class="fa fa-edit"></i>
                             </button>
-                        </td>
-                        <td>
-                            <button @click="deleteLink(link)" class="btn btn-danger btn-sm">
+                            <button title="Delete" @click="deleteLink(link)" class="btn btn-danger btn-sm">
                                 <i class="fa fa-trash"></i>
                             </button>
                         </td>
@@ -68,6 +65,9 @@ include_once "vendor/autoload.php";
             this.getLinks();
         },
         methods: {
+            open(link) {
+                window.open(this.getLinkForSharing(link));
+            },
             edit(link) {
                 window.location.href = "./edit_link.php?id=" + link.id;
             },
@@ -87,11 +87,7 @@ include_once "vendor/autoload.php";
                 }
             },
             async copy(link) {
-                const url = new URL(window.location);
-                let path = url.pathname.split("/");
-                path.pop(); // remove the last
-                url.pathname = path.join("/");
-                const fullUrl = url.href + `/${link.hash}`;
+                const fullUrl = this.getLinkForSharing(link);
                 if (!navigator.clipboard) {
                     prompt("Please press CTRL + C", fullUrl);
                 } else {
@@ -101,6 +97,13 @@ include_once "vendor/autoload.php";
                     position: "top-right",
                     duration: 1000,
                 });
+            },
+            getLinkForSharing(link) {
+                const url = new URL(window.location);
+                let path = url.pathname.split("/");
+                path.pop(); // remove the last
+                url.pathname = path.join("/");
+                return url.href + `/${link.hash}`;
             },
             async getLinks() {
                 const r = await fetch(`./get_links_ajax.php?search=${this.search}`);
