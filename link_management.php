@@ -29,6 +29,9 @@ include_once "vendor/autoload.php";
                             <i v-else class="fa fa-times"></i>
                         </td>
                         <td>
+                            <button title="Link statistics" @click="statistics(link)" class="btn btn-info btn-sm">
+                                <i class="fa fa-chart-bar"></i>
+                            </button>
                             <button title="Open in external tab" @click="open(link)" class="btn btn-primary btn-sm">
                                 <i class="fa fa-external-link-alt"></i>
                             </button>
@@ -63,6 +66,9 @@ include_once "vendor/autoload.php";
             this.getLinks();
         },
         methods: {
+            statistics(link) {
+                window.location.href = "./link_statistics.php?id=" + link.id;
+            },
             open(link) {
                 window.open(this.getLinkForSharing(link));
             },

@@ -4,6 +4,18 @@ namespace Parzibyte;
 
 class StatisticsController
 {
+
+    static function getClickCountByDateAndLink($linkId, $start, $end)
+    {
+        $db = Database::get();
+        $statement = $db->prepare("SELECT date, count(*) as clicks FROM statistics
+        WHERE date >= ? AND date <= ?
+        AND link_id = ?
+        GROUP BY date");
+        $statement->execute([$start, $end, $linkId]);
+        return $statement->fetchAll();
+    }
+
     static function getMostClickedLinksOfAllTime()
     {
         $db = Database::get();
