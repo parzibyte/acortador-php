@@ -6,6 +6,13 @@ class LinkController
 {
     static $HASH_LENGTH = 6;
 
+    static function getOneByHash($hash)
+    {
+        $db = Database::get();
+        $statement = $db->prepare("SELECT id, hash, title, real_link, instant_redirect FROM links WHERE hash = ?");
+        $statement->execute([$hash]);
+        return $statement->fetchObject();
+    }
     static function delete($id)
     {
         $db = Database::get();

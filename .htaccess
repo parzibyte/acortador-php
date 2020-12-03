@@ -1,2 +1,2 @@
 RewriteEngine On
-RewriteRule ^([a-z0-9A-Z]{6})$ link.php?id=$1
+RewriteRule ^([a-z0-9A-Z]{6})$ link.php?hash=$1
