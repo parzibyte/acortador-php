@@ -17,11 +17,11 @@
                 <div class="alert alert-primary">
                     <h4>Para continuar, sígueme en una de mis redes sociales: (el enlace se muestra al hacer clic)</h4>
                 </div>
-                <a href="https://parzibyte.me" target="_blank" class="seguir btn btn-danger mb-2">Youtube&nbsp;<i class="fab fa-youtube"></i></a>
-                <a href="https://parzibyte.me" target="_blank" class="seguir btn btn-primary mb-2">Facebook&nbsp;<i class="fab fa-facebook"></i></a>
+                <a href="https://www.youtube.com/channel/UCroP4BTWjfM0CkGB6AFUoBg?sub_confirmation=1" target="_blank" class="seguir btn btn-danger mb-2">Youtube&nbsp;<i class="fab fa-youtube"></i></a>
+                <a href="https://www.facebook.com/parzibyte.fanpage/" target="_blank" class="seguir btn btn-primary mb-2">Facebook&nbsp;<i class="fab fa-facebook"></i></a>
                 <br>
-                <a href="https://parzibyte.me" target="_blank" class="seguir btn btn-info">Twitter&nbsp;<i class="fab fa-twitter"></i></a>
-                <a href="https://parzibyte.me" target="_blank" class="seguir btn btn-warning">Instagram&nbsp;<i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/parzibyte" target="_blank" class="seguir btn btn-info">Twitter&nbsp;<i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/parzibyte/" target="_blank" class="seguir btn btn-warning">Instagram&nbsp;<i class="fab fa-instagram"></i></a>
             </div>
             <div class="col-12 mt-2 text-center" id="link"> </div>
         </div>

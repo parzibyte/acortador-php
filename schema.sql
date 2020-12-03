@@ -11,6 +11,12 @@ CREATE TABLE IF NOT EXISTS links(
     instant_redirect BOOLEAN DEFAULT 1
 );
 
+CREATE TABLE IF NOT EXISTS statistics(
+    link_id BIGINT UNSIGNED NOT NULL,
+    date varchar(10) NOT NULL,
+    FOREIGN KEY (link_id) REFERENCES links(id)
+);
+
 # A default user. Password is 'hunter2'
 INSERT INTO `users` (`email`, `password`) VALUES
 ('parzibyte@gmail.com', '$2y$10$DVMlG/zp8rB3KrW6oRvpvOgbIkoRRfOXu/9H5DgTfVQXwZP5m.tQy');
