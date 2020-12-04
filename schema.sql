@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS links(
 CREATE TABLE IF NOT EXISTS statistics(
     link_id BIGINT UNSIGNED NOT NULL,
     date varchar(10) NOT NULL,
-    FOREIGN KEY (link_id) REFERENCES links(id)
+    FOREIGN KEY (link_id) REFERENCES links(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 # A default user. Password is 'hunter2'
