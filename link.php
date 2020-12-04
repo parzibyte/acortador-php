@@ -1,7 +1,6 @@
 <?php
 
 use Parzibyte\LinkController;
-use Parzibyte\StatisticsController;
 
 include_once "vendor/autoload.php";
 
@@ -13,9 +12,18 @@ $link = LinkController::getOneByHash($hash);
 if (!$link) {
     exit("Link does not exist");
 }
-StatisticsController::registerClick($link->id);
 if ($link->instant_redirect) {
-    header("Location: " . $link->real_link);
+?>
+    <script>
+        (async () => {
+            await fetch("./track_link.php", {
+                method: "POST",
+                body: JSON.stringify("<?php echo $link->hash ?>"),
+            });
+            window.location.href = "<?php echo $link->real_link ?>";
+        })();
+    </script>
+<?php
     exit;
 } else {
     include_once "redirect_template.php";

@@ -35,8 +35,14 @@
                         if (mostrado) return;
                         mostrado = true;
                         $link.innerHTML = `<strong class="h5">¡Gracias por seguirme, me motivas a seguir con mi trabajo!</strong><br>Redireccionando...`;
-                        setTimeout(() => {
-                            window.location.href = "<?php echo $link->real_link ?>";
+                        setTimeout(async () => {
+                            (async () => {
+                                await fetch("./track_link.php", {
+                                    method: "POST",
+                                    body: JSON.stringify("<?php echo $link->hash ?>"),
+                                });
+                                window.location.href = "<?php echo $link->real_link ?>";
+                            })();
                         }, 1000)
                     })
                 });
