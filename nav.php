@@ -51,7 +51,7 @@ use Parzibyte\SessionController;
             </li>
 
             <li class="nav-item active">
-                <a class="nav-link" href="//parzibyte.me/blog">Support & help&nbsp;<i class="fa fa-hands-helping"></i></a>
+                <a class="nav-link" href="https://parzibyte.me/l/fW8zGd">Support & help&nbsp;<i class="fa fa-hands-helping"></i></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="logout.php">Logout (<?php
