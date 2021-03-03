@@ -52,6 +52,22 @@ También tengo canal de YouTube: https://www.youtube.com/channel/UCroP4BTWjfM0Ck
                 <a href="https://www.instagram.com/parzibyte/" target="_blank" class="seguir btn btn-warning">Instagram&nbsp;<i class="fab fa-instagram"></i></a>
             </div>
             <div class="col-12 mt-2 text-center" id="link"> </div>
+            <div class="col-12 text-center">
+                <div class="alert alert-success">
+                    <h4>También puedes seguir a una web amiga:</h4>
+                </div>
+            </div>
+            <div class="col-12">
+
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <a class="seguir" target="_blank" href="https://parzibyte.me/l/f7yL3x">Arañita MX - Productos hechos a mano ✨</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a class="seguir" target="_blank" href="https://parzibyte.me#contacto">Quiero ver mi página aquí</a>
+                    </li>
+                </ul>
+            </div>
         </div>
         <script>
             let mostrado = false;
