@@ -42,20 +42,22 @@ También tengo canal de YouTube: https://www.youtube.com/channel/UCroP4BTWjfM0Ck
         <div class="row">
             <div class="col-12 text-center">
                 <h2>Redireccionando a <?php echo $link->title ?>...</h2>
-                <div class="alert alert-primary">
-                    <h4>Para continuar, sígueme en una de mis redes sociales: (el enlace se muestra al hacer clic)</h4>
+                <div class="alert alert-info">
+                    <h1>No cierres esta pestaña, lee y sigue las instrucciones:</h1>
+                    <p class="h3"><strong>1.</strong>No cierres esta pestaña</p>
+                    <p class="h3"><strong>2.</strong>Haz clic en un botón de mis redes sociales y sígueme o sigue a una de las páginas web amigas </p>
+                    <p class="h3"><strong>3.</strong>Una vez que me hayas seguido a mí o una web amiga, vuelve a esta página y serás redireccionado automáticamente</p>
+                    <p class="h3"><strong>4.</strong>Si ya lo has hecho y no funciona, intenta con otro navegador o refresca esta página</p>
                 </div>
+                <h4>Redes sociales:</h4>
                 <a href="https://www.youtube.com/channel/UCroP4BTWjfM0CkGB6AFUoBg?sub_confirmation=1" target="_blank" class="seguir btn btn-danger mb-2">Youtube&nbsp;<i class="fab fa-youtube"></i></a>
                 <a href="https://www.facebook.com/parzibyte.fanpage/" target="_blank" class="seguir btn btn-primary mb-2">Facebook&nbsp;<i class="fab fa-facebook"></i></a>
-                <br>
                 <a href="https://twitter.com/parzibyte" target="_blank" class="seguir btn btn-info">Twitter&nbsp;<i class="fab fa-twitter"></i></a>
                 <a href="https://www.instagram.com/parzibyte/" target="_blank" class="seguir btn btn-warning">Instagram&nbsp;<i class="fab fa-instagram"></i></a>
             </div>
             <div class="col-12 mt-2 text-center" id="link"> </div>
             <div class="col-12 text-center">
-                <div class="alert alert-success">
-                    <h4>También puedes seguir a una web amiga:</h4>
-                </div>
+                <h4>También puedes seguir a una web amiga:</h4>
             </div>
             <div class="col-12">
 
